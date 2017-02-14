@@ -1,0 +1,98 @@
+﻿@model AutoKomisMVC.ViewModels.HomeViewModel
+@using AutoKomisMVC.Infrastructure
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/PrototypesStyle.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.intellisense.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+    <script src="@Url.Content("~/Scripts/Menu.js")"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>HomePageMobile</title>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <img id="logoWidth" src="../Content/Images/logo.jpg" />
+            <div class="btn-group btn-group-justified">
+                <div class="btn-group">
+                    <a type="button" href="@Url.Action("HomePage", "Home")" class="btn btn-nav">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <p>Strona główna</p>
+                    </a>
+                </div>
+
+                <div class="btn-group">
+                    <a href="@Url.Action("AdvertismentList", "Advertisment")" type="button" class="btn btn-nav">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                        <p>Oferta</p>
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a href="@Url.Action("Contact", "Home")" type="button" class="btn btn-nav">
+                        <span class="glyphicon glyphicon-earphone"></span>
+                        <p>Kontakt</p>
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a href="@Url.Action("Route", "Home")" type="button" class="btn btn-nav">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                        <p>Dojazd</p>
+                    </a>
+                </div>
+            </div>
+
+
+            <h3 class="ui-bar ui-bar-a ui-corner-all">Ostatnio dodane</h3>
+            <div class="ui-body">
+                <ul data-role="listview" data-inset="true">
+                    @foreach (var advert in Model.NewAdvertisments)
+            {
+                        <li>
+                            <a href="@Url.Action("AdvertismentDetails","Advertisment",new { id = advert.AdvertismentID, BrandOfCar=advert.BrandOfCar, ModelOfCar=advert.ModelOfCar })">
+                                <img src="@Url.CarPhotoPath(advert.AdvertPhotos.FirstOrDefault().PhotoFileName)">
+                                <h2>@advert.BrandOfCar</h2>
+                                <p>@advert.ModelOfCar</p>
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+                <h2>
+                    AUTOKOMIS: <br />
+                    kupno, sprzedaż, zamiana
+                </h2><br />
+                <h3>
+                    pracujemy od poniedziałku do piątku w godzinach: @Model.OpenedFrom-@Model.OpenedTo <br />
+                    oraz w sobotę w godzinach @Model.SaturdayOpenedFrom-@Model.SaturdayOpenedTo
+                </h3> <br />
+                <h3>tel. <text style="color:red">@Model.PhoneNumber</text></h3> <br />
+                <h4>
+                    Jeśli chcesz sprzedać swój samochód, zadzwoń do nas.<br />
+                    Płacimy gotówką !<br />
+                    Bezpłatnie przyjmujemy samochody w komis !
+                </h4>
+
+            </div>
+
+            <div data-role="footer">
+                <h2>Copyright &copy; 2016 AutoKomis</h2>
+
+            </div>
+            @Html.Partial("_ViewSwitcher")
+        </div>
+    </div>
+</body>
+</html>

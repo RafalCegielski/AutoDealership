@@ -1,0 +1,112 @@
+﻿@model AutoKomisMVC.ViewModels.AdvertismentDTO
+@using AutoKomisMVC.Infrastructure
+@{
+    ViewBag.Title = "Szczegóły ogłoszenia";
+}
+
+<div id="carInfo" class="row">
+
+    <div class="col-md-12 col-xs-12" style="text-align:left"> @Html.MvcSiteMap().SiteMapPath()</div>
+    <div class="col-md-12 col-xs-12" id="carInfoTopic">Audi A3</div>
+    <a class="fancybox-thumb " rel="fancybox-thumb" href="@Url.CarPhotoPath(Model.AdvertPhotos.FirstOrDefault().PhotoFileName)">
+        <img id="carInfoMainImg" src="@Url.CarPhotoPath(Model.AdvertPhotos.FirstOrDefault().PhotoFileName)" alt="" />
+    </a>
+
+    <div id="carInfoPrice">
+        <div class="col-md-12 col-xs-12 atrybutes" id="carInfoPriceFont">
+            Cena:  @Model.Price
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-6 textLeft">
+        <div class="col-md-12 col-xs-12 atrybutes">
+            <div class="col-md-6 col-xs-6">Marka: </div>
+            <div class="col-md-6 col-xs-6">@Model.BrandOfCar</div>
+        </div>
+        <div class="col-md-12 col-xs-12 atrybutes">
+            <div class="col-md-6 col-xs-6">Model:</div>
+            <div class="col-md-6 col-xs-6">@Model.ModelOfCar</div>
+        </div>
+        <div class="col-md-12 col-xs-12 atrybutes">
+            <div class="col-md-6 col-xs-6">Rok produkcji:</div>
+            <div class="col-md-6 col-xs-6">@Model.YearOfCreate</div>
+        </div>
+        <div class="col-md-12 col-xs-12 atrybutes">
+            <div class="col-md-6 col-xs-6">Poj. silnika:</div>
+            <div class="col-md-6 col-xs-6">@Model.EngineCapacity</div>
+        </div>
+        <div class="col-md-12 col-xs-12 atrybutes">
+            <div class="col-md-6 col-xs-6">Typ paliwa:</div>
+            <div class="col-md-6 col-xs-6">@Model.FluelType</div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-6 textLeft">
+        <div class="col-md-12 col-xs-12 atrybutes">
+            <div class="col-md-6 col-xs-6">Skrzynia biegów:</div>
+            <div class="col-md-6 col-xs-6">@Model.Gearbox</div>
+        </div>
+        <div class="col-md-12 col-xs-12 atrybutes">
+            <div class="col-md-6 col-xs-6">Typ nadwozia:</div>
+            <div class="col-md-6 col-xs-6">@Model.BodyType</div>
+        </div>
+        <div class="col-md-12 col-xs-12 atrybutes">
+            <div class="col-md-6 col-xs-6">Moc silnika:</div>
+            <div class="col-md-6 col-xs-6">@Model.EnginePower KM</div>
+        </div>
+        <div class="col-md-12 col-xs-12 atrybutes">
+            <div class="col-md-6 col-xs-6">Przebieg:</div>
+            <div class="col-md-6 col-xs-6">@Model.Mileage km</div>
+        </div>
+        <div class="col-md-12 col-xs-12 atrybutes">
+            <div class="col-md-6 col-xs-6">Liczba drzwi:</div>
+            <div class="col-md-6 col-xs-6">@Model.NumberOfDoor</div>
+        </div>
+
+    </div>
+    <div id="carInfoAdds">
+        <div class="col-md-12 col-xs-12 atrybutes">
+
+            <div class="col-md-3 col-xs-3 textLeft">Wyposażenie:</div>
+            <div class="col-md-9 col-xs-9 textLeft paddingLeft">@Model.Equipment</div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-xs-12 marginTop30">
+        <style>
+            .carPhotos {
+                /*max-height: 130px;*/
+                max-width: 234px;
+            }
+        </style>
+        @foreach (var img in Model.AdvertPhotos)
+        {
+            if (img != Model.AdvertPhotos.FirstOrDefault())
+            {
+                <a class="fancybox-thumb col-md-3" rel="fancybox-thumb" href="@Url.CarPhotoPath(img.PhotoFileName)">
+                    <img class="carPhotos" src="@Url.CarPhotoPath(img.PhotoFileName)" alt="" />
+                </a>
+            }
+
+        }
+
+    </div>
+
+    <div class="col-md-12 " id="carInfoDescription">Opis:</div>
+    <div style="text-align:left; margin:0px 20px 0px 20px">
+        @Html.Raw(@Model.Description)
+    </div>
+</div>
+
+@section ScriptsBottom{
+
+    <script src="~/Scripts/Gallery.js"></script>
+    <script src="~/Scripts/jquery.mousewheel-3.0.6.pack.js"></script>
+    <link href="~/Content/jquery.fancybox-thumbs.css" rel="stylesheet" />
+    <link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.fancybox.js"></script>
+    <script src="~/Scripts/jquery.fancybox-thumbs.js"></script>
+
+
+    <script>
+        activeEl = -1;
+    </script>
+}

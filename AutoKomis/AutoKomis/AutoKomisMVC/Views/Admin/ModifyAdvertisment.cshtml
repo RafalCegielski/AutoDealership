@@ -1,0 +1,219 @@
+﻿
+@{
+    ViewBag.Title = "Modyfikowanie ogłoszenia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="addingCar">
+
+
+    <div class="form-group labelName">
+        <label class="col-sm-2 control-label">
+            Marka
+        </label>
+        <div class="col-sm-4">
+            <select class="form-control ">
+                <option value="0">wybierz</option>
+                <option value="1">Audi</option>
+                <option value="2">Skoda</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group labelName">
+        <label class="col-sm-2">
+            Model
+        </label>
+        <div class="col-sm-4">
+            <select class="form-control ">
+                <option value="0">wybierz</option>
+                <option value="1">A4</option>
+                <option value="2">A3</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group labelName">
+        <label class="col-sm-2">
+            Cena [zł]
+        </label>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="input-group-validation right-sm">
+                        <input type="text" value="" class="form-control ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group labelName">
+        <label class="col-sm-2">
+            Poj. silnika [cm3]
+        </label>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="input-group-validation right-sm">
+                        <input type="text" value="" class="form-control ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group labelName">
+        <label class="col-sm-2">
+            Rok produkcji
+        </label>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="input-group-validation right-sm">
+                        <input type="text" value="" class="form-control ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group labelName">
+        <label class="col-sm-2">
+            Paliwo
+        </label>
+        <div class="col-sm-4">
+            <select class="form-control ">
+                <option value="0">wybierz</option>
+                <option value="1">Benzyna</option>
+                <option value="2">Diesel</option>
+                <option value="2">LPG</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group labelName">
+        <label class="col-sm-2">
+            Moc silnika [KM]
+        </label>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="input-group-validation right-sm">
+                        <input type="text" value="" class="form-control ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group labelName">
+        <label class="col-sm-2">
+            Przebieg [km]
+        </label>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="input-group-validation right-sm">
+                        <input type="text" value="" class="form-control ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group labelName">
+        <label class="col-sm-2">
+            Typ nadwozia
+        </label>
+        <div class="col-sm-4">
+            <select class="form-control ">
+                <option value="0">wybierz</option>
+                <option value="1">Sedan</option>
+                <option value="2">Hatchback</option>
+                <option value="2">Kombi</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group labelName">
+        <label class="col-sm-2">
+            Kolor
+        </label>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="input-group-validation right-sm">
+                        <input type="text" value="" class="form-control ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group labelName">
+        <label class="col-sm-2">
+            Skrzynia biegów
+        </label>
+        <div class="col-sm-4">
+            <select class="form-control ">
+                <option value="0">wybierz</option>
+                <option value="1">Manualna</option>
+                <option value="2">Automatyczna</option>
+                <option value="2">Półautomatyczna</option>
+            </select>
+        </div>
+    </div>
+
+
+
+
+    <div class="labelName">
+        <!--   <form method="post" >-->
+        <p>
+            <textarea name="editor1"></textarea>
+            <script type="text/javascript">
+                CKEDITOR.replace('editor1');
+            </script>
+        </p>
+        <!--<p>
+                <input type="submit" />
+            </p>
+        </form>-->
+
+    </div>
+
+
+
+    <input id="inputImg" name="test" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
+
+    <div class="col-xs-12">
+        <button class="btn btn-success btn-lg btnAddAdvertisment">Zmień ogłoszenie</button>
+        <button class="btn btn-danger btn-lg btnAddAdvertisment">Anuluj</button>
+    </div>
+    
+
+</div>
+
+@section ckeditor{
+    <script src="../../Content/Editor/ckeditor.js"></script>
+}
+@section ScriptsBottom{
+
+    <link href="../Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
+    <script src="../Scripts/fileinput.min.js"></script>
+    <script src="../Scripts/fileinput_locale_pl.js"></script>
+
+    <script>
+
+        $("#inputImg").fileinput({
+            'language': 'pl',
+            'allowedFileExtensions': ['jpg', 'png'],
+            'maxFileCount': 9,
+            'showCaption': false,
+        });
+
+        activeEl = -1;
+    </script>
+
+}
+

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<AutoKomisMVC.ViewModels.AdvertismentDTO>
+@using AutoKomisMVC.Infrastructure;
+
+
+<div id="carlist-section">
+    @foreach (var advert in Model)
+    {
+        <div class="row" id="marginRow">
+            <a class="col-md-12 col-xs-12 advertBackground" href="@Url.Action("AdvertismentDetails","Advertisment",new { id = advert.AdvertismentID, BrandOfCar=advert.BrandOfCar, ModelOfCar=advert.ModelOfCar })">
+                <img class="col-md-3 col-xs-3 advertImg" src="@Url.CarPhotoPath(advert.AdvertPhotos.FirstOrDefault().PhotoFileName)" />
+                <div class="col-md-6 col-xs-6 advertTopic">@advert.BrandOfCar @advert.ModelOfCar</div>
+                <div class="col-md-3 col-xs-3 advertPrice">@advert.Price</div>
+            </a>
+        </div>
+    }
+</div>

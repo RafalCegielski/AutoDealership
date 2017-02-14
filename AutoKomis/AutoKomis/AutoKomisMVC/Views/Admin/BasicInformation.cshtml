@@ -1,0 +1,102 @@
+﻿@model AutoKomisMVC.ViewModels.BasicInformationViewModel
+@{
+    ViewBag.Title = "Podstawowe dane";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="administration" ng-app="admins">
+    @using (Html.BeginForm("BasicInformation", "Admin", FormMethod.Post))
+    {
+    <label>Godziny otwarcia: </label> <br />
+    <div style="" class="col-md-8 col-md-offset-2 col-xs-12" id="timeOpen">
+        <label class="col-xs-4 openDayText">Poniedziałek - piątek od: </label>
+        <div ng-controller="DateOpen" class="col-xs-3">
+            <uib-timepicker class="timBoxCenter" ng-model="mytime" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+        </div>
+        <label class="col-xs-1 openToTimeText">do:</label>
+        <div ng-controller="DateClose" class="col-xs-3">
+            <uib-timepicker class="timBoxCenter" ng-model="mytime" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+        </div>
+    </div>
+
+    <div style="" class="col-md-8 col-md-offset-2 col-xs-12" id="timeSaturadayOpen">
+        <label class="col-xs-4 openDayText">Sobota od: </label>
+        <div ng-controller="DateSaturdayOpen" class="col-xs-3">
+            <uib-timepicker class="timBoxCenter" ng-model="mytime" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" ></uib-timepicker>
+        </div>
+        <label class="col-xs-1 openToTimeText">do:</label>
+        <div ng-controller="DateSaturdayClose" class="col-xs-3">
+            <uib-timepicker class="timBoxCenter" ng-model="mytime" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+        </div>
+    </div>
+   
+    <label class="col-xs-12">Numer Telefonu: </label>
+    <input class="col-xs-2 col-xs-offset-5 phoneNumberBox" id="phone" type="text" value="@Model.PhoneNumber" name="PhoneNumber">
+
+    <label class="col-xs-12">Adres E-mail: </label>
+    <input class="col-xs-2 col-xs-offset-5 phoneNumberBox" id="email" type="email" value="@Model.Email" name="Email">
+    
+
+    <div class="col-xs-12 btnForModifyData">
+        <button type="submit" class="btn btn-success">Uaktualnij</button>
+        <button class="btn btn-danger">Anuluj</button>
+    </div>
+    }
+</div>
+
+@section ScriptsBottom{
+    <script src="@Url.Content("~/Scripts/angular.js")"></script>
+    <script src="@Url.Content("~/Scripts/angular-animate.js")"></script>
+    <script src="@Url.Content("~/Scripts/angular-ui/ui-bootstrap-tpls.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.maskedinput.js")"></script>
+
+    <script>
+
+        angular.module('admins', ['ngAnimate', 'ui.bootstrap']);
+        angular.module('admins').controller('DateOpen', function ($scope, $log) {
+            var d = new Date();
+            d.setHours (@Model.OpenedFrom.Hour);
+            d.setMinutes (@Model.OpenedFrom.Minute);
+
+
+            $scope.hstep = 1;
+            $scope.mstep = 5;
+
+            $scope.mytime = d;
+            $scope.ismeridian = false;
+
+        });
+        angular.module('admins').controller('DateClose', function ($scope, $log) {
+            var d = new Date();
+            $scope.hstep = 1;
+            $scope.mstep = 5;
+            d.setHours( @Model.OpenedTo.Hour);
+            d.setMinutes(@Model.OpenedTo.Minute);
+            $scope.mytime = d;
+            $scope.ismeridian = false;
+        });
+        angular.module('admins').controller('DateSaturdayOpen', function ($scope, $log) {
+            var d = new Date();
+            $scope.hstep = 1;
+            $scope.mstep = 5;
+            d.setHours(@Model.SaturdayOpenedFrom.Hour);
+            d.setMinutes(@Model.SaturdayOpenedFrom.Minute);
+            $scope.mytime = d;
+            $scope.ismeridian = false;
+        });
+        angular.module('admins').controller('DateSaturdayClose', function ($scope, $log) {
+            var d = new Date();
+            $scope.hstep = 1;
+            $scope.mstep = 5;
+            d.setHours(@Model.SaturdayOpenedTo.Hour);
+            d.setMinutes(@Model.SaturdayOpenedTo.Minute);
+            $scope.mytime = d;
+            $scope.ismeridian = false;
+        });
+
+
+        jQuery(function ($) {
+            $("#phone").mask("999-999-999");
+        });
+    </script>
+}

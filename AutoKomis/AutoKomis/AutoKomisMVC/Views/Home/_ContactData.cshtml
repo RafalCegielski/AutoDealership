@@ -1,0 +1,8 @@
+﻿@model AutoKomisMVC.ViewModels.BasicInformationDTO
+
+
+<div class="fontSizeInBaner marginTop20">
+    pracujemy od poniedziałku do piątku w godzinach: @Model.OpenedFrom-@Model.OpenedTo <br />
+    oraz w sobotę w godzinach @Model.SaturdayOpenedFrom-@Model.SaturdayOpenedTo
+</div> <br />
+<div class="fontSizeInBaner">tel. kontaktowy: <text id="phoneNumberStyle">@Model.PhoneNumber</text></div> <br />

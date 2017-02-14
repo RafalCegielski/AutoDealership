@@ -1,0 +1,18 @@
+namespace AutoKomisMVC.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class AddEmailAdress : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.BasicInformations", "Email", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.BasicInformations", "Email");
+        }
+    }
+}

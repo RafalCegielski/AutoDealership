@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{307A7F40-0777-4B9C-98BB-7EE30DC95B40}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoKomisMVC</RootNamespace>
+    <AssemblyName>AutoKomisMVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bootstrap.Pagination, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bootstrap.Pagination.1.0.14\lib\net451\Bootstrap.Pagination.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.2\lib\net45\Glimpse.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcSiteMapProvider, Version=4.6.22.0, Culture=neutral, PublicKeyToken=1923abe4657913cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.Core.4.6.22\lib\net45\MvcSiteMapProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider.WebActivator, Version=4.6.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.4.6.22\lib\net45\MvcSiteMapProvider.WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-fileinput\css\fileinput.css" />
+    <Content Include="Content\bootstrap-fileinput\css\fileinput.min.css" />
+    <Content Include="Content\bootstrap-fileinput\img\loading-sm.gif" />
+    <Content Include="Content\bootstrap-fileinput\img\loading.gif" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Editor\adapters\jquery.js" />
+    <Content Include="Content\Editor\build-config.js" />
+    <Content Include="Content\Editor\ckeditor.js" />
+    <Content Include="Content\Editor\config.js" />
+    <Content Include="Content\Editor\contents.css" />
+    <Content Include="Content\Editor\lang\en.js" />
+    <Content Include="Content\Editor\lang\pl.js" />
+    <Content Include="Content\Editor\plugins\about\dialogs\about.js" />
+    <Content Include="Content\Editor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="Content\Editor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Content\Editor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Content\Editor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Content\Editor\plugins\icons.png" />
+    <Content Include="Content\Editor\plugins\icons_hidpi.png" />
+    <Content Include="Content\Editor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Content\Editor\plugins\link\dialogs\link.js" />
+    <Content Include="Content\Editor\plugins\link\images\anchor.png" />
+    <Content Include="Content\Editor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="Content\Editor\samples\css\samples.css" />
+    <Content Include="Content\Editor\samples\img\github-top.png" />
+    <Content Include="Content\Editor\samples\img\header-bg.png" />
+    <Content Include="Content\Editor\samples\img\header-separator.png" />
+    <Content Include="Content\Editor\samples\img\logo.png" />
+    <Content Include="Content\Editor\samples\img\navigation-tip.png" />
+    <Content Include="Content\Editor\samples\index.html" />
+    <Content Include="Content\Editor\samples\js\sample.js" />
+    <Content Include="Content\Editor\samples\js\sf.js" />
+    <Content Include="Content\Editor\samples\old\ajax.html" />
+    <Content Include="Content\Editor\samples\old\api.html" />
+    <Content Include="Content\Editor\samples\old\appendto.html" />
+    <Content Include="Content\Editor\samples\old\assets\inlineall\logo.png" />
+    <Content Include="Content\Editor\samples\old\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="Content\Editor\samples\old\assets\sample.jpg" />
+    <Content Include="Content\Editor\samples\old\assets\uilanguages\languages.js" />
+    <Content Include="Content\Editor\samples\old\datafiltering.html" />
+    <Content Include="Content\Editor\samples\old\dialog\assets\my_dialog.js" />
+    <Content Include="Content\Editor\samples\old\dialog\dialog.html" />
+    <Content Include="Content\Editor\samples\old\divreplace.html" />
+    <Content Include="Content\Editor\samples\old\enterkey\enterkey.html" />
+    <Content Include="Content\Editor\samples\old\index.html" />
+    <Content Include="Content\Editor\samples\old\inlineall.html" />
+    <Content Include="Content\Editor\samples\old\inlinebycode.html" />
+    <Content Include="Content\Editor\samples\old\inlinetextarea.html" />
+    <Content Include="Content\Editor\samples\old\jquery.html" />
+    <Content Include="Content\Editor\samples\old\readonly.html" />
+    <Content Include="Content\Editor\samples\old\replacebyclass.html" />
+    <Content Include="Content\Editor\samples\old\replacebycode.html" />
+    <Content Include="Content\Editor\samples\old\sample.css" />
+    <Content Include="Content\Editor\samples\old\sample.js" />
+    <Content Include="Content\Editor\samples\old\tabindex.html" />
+    <Content Include="Content\Editor\samples\old\toolbar\toolbar.html" />
+    <Content Include="Content\Editor\samples\old\uicolor.html" />
+    <Content Include="Content\Editor\samples\old\uilanguages.html" />
+    <Content Include="Content\Editor\samples\old\wysiwygarea\fullpage.html" />
+    <Content Include="Content\Editor\samples\old\xhtmlstyle.html" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\css\fontello.css" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\font\fontello.svg" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\font\LICENSE.txt" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\index.html" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\js\abstracttoolbarmodifier.js" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\js\fulltoolbareditor.js" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\js\toolbarmodifier.js" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\js\toolbartextmodifier.js" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\lib\codemirror\codemirror.css" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\lib\codemirror\codemirror.js" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\lib\codemirror\javascript.js" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\lib\codemirror\neo.css" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\lib\codemirror\show-hint.css" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\lib\codemirror\show-hint.js" />
+    <Content Include="Content\Editor\skins\moono\dialog.css" />
+    <Content Include="Content\Editor\skins\moono\dialog_ie.css" />
+    <Content Include="Content\Editor\skins\moono\dialog_ie7.css" />
+    <Content Include="Content\Editor\skins\moono\dialog_ie8.css" />
+    <Content Include="Content\Editor\skins\moono\dialog_iequirks.css" />
+    <Content Include="Content\Editor\skins\moono\editor.css" />
+    <Content Include="Content\Editor\skins\moono\editor_gecko.css" />
+    <Content Include="Content\Editor\skins\moono\editor_ie.css" />
+    <Content Include="Content\Editor\skins\moono\editor_ie7.css" />
+    <Content Include="Content\Editor\skins\moono\editor_ie8.css" />
+    <Content Include="Content\Editor\skins\moono\editor_iequirks.css" />
+    <Content Include="Content\Editor\skins\moono\icons.png" />
+    <Content Include="Content\Editor\skins\moono\icons_hidpi.png" />
+    <Content Include="Content\Editor\skins\moono\images\arrow.png" />
+    <Content Include="Content\Editor\skins\moono\images\close.png" />
+    <Content Include="Content\Editor\skins\moono\images\hidpi\close.png" />
+    <Content Include="Content\Editor\skins\moono\images\hidpi\lock-open.png" />
+    <Content Include="Content\Editor\skins\moono\images\hidpi\lock.png" />
+    <Content Include="Content\Editor\skins\moono\images\hidpi\refresh.png" />
+    <Content Include="Content\Editor\skins\moono\images\lock-open.png" />
+    <Content Include="Content\Editor\skins\moono\images\lock.png" />
+    <Content Include="Content\Editor\skins\moono\images\refresh.png" />
+    <Content Include="Content\Editor\skins\moono\images\spinner.gif" />
+    <Content Include="Content\Editor\styles.js" />
+    <Content Include="Content\fancybox\blank.gif" />
+    <Content Include="Content\fancybox\fancybox_buttons.png" />
+    <Content Include="Content\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\Images\1-min.jpg" />
+    <Content Include="Content\Images\1.jpg" />
+    <Content Include="Content\Images\2.jpg" />
+    <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\ajax-loader.png" />
+    <Content Include="Content\Images\background.jpg" />
+    <Content Include="Content\Images\CarIcon.png" />
+    <Content Include="Content\Images\icons-18-black.png" />
+    <Content Include="Content\Images\icons-18-white.png" />
+    <Content Include="Content\Images\icons-36-black.png" />
+    <Content Include="Content\Images\icons-36-white.png" />
+    <Content Include="Content\Images\logo.jpg" />
+    <Content Include="Content\jquery.fancybox-buttons.css" />
+    <Content Include="Content\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\jquery.fancybox.css" />
+    <Content Include="Content\Images\Login.png" />
+    <Content Include="Content\jquery.mobile-1.1.0.css" />
+    <Content Include="Content\jquery.mobile-1.1.0.min.css" />
+    <Content Include="Content\jquery.mobile.structure-1.1.0.css" />
+    <Content Include="Content\jquery.mobile.structure-1.1.0.min.css" />
+    <Content Include="Content\jquery.mobile.theme-1.1.0.css" />
+    <Content Include="Content\jquery.mobile.theme-1.1.0.min.css" />
+    <Content Include="Content\PrototypesStyle.css" />
+    <Content Include="Content\Site.Mobile.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Prototypes\AdminAddingAdcertisment.html" />
+    <Content Include="Prototypes\Administration.html" />
+    <Content Include="Prototypes\AdminAdvertismentsList.html" />
+    <Content Include="Prototypes\AdminModifyAdvertisment.html" />
+    <Content Include="Prototypes\Advertisements.html" />
+    <Content Include="Prototypes\AdvertismentInfo.html" />
+    <Content Include="Prototypes\Contact.html" />
+    <Content Include="Prototypes\Home.html" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\Editor\CHANGES.md" />
+    <Content Include="Content\Editor\LICENSE.md" />
+    <Content Include="Content\Editor\README.md" />
+    <Content Include="Content\Editor\samples\old\assets\posteddata.php" />
+    <Content Include="Content\Editor\samples\old\sample_posteddata.php" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\font\config.json" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\font\fontello.eot" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\font\fontello.ttf" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\font\fontello.woff" />
+    <Content Include="Content\Editor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
+    <Content Include="Content\Editor\skins\moono\readme.md" />
+    <Content Include="Prototypes\Route.html" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Mvc.sitemap" />
+    <None Include="MvcSiteMapSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\fileinput.js" />
+    <Content Include="Scripts\fileinput.min.js" />
+    <Content Include="Scripts\fileinput_locale_ar.js" />
+    <Content Include="Scripts\fileinput_locale_bg.js" />
+    <Content Include="Scripts\fileinput_locale_ca.js" />
+    <Content Include="Scripts\fileinput_locale_cr.js" />
+    <Content Include="Scripts\fileinput_locale_cz.js" />
+    <Content Include="Scripts\fileinput_locale_da.js" />
+    <Content Include="Scripts\fileinput_locale_de.js" />
+    <Content Include="Scripts\fileinput_locale_el.js" />
+    <Content Include="Scripts\fileinput_locale_es.js" />
+    <Content Include="Scripts\fileinput_locale_fa.js" />
+    <Content Include="Scripts\fileinput_locale_fi.js" />
+    <Content Include="Scripts\fileinput_locale_fr.js" />
+    <Content Include="Scripts\fileinput_locale_hu.js" />
+    <Content Include="Scripts\fileinput_locale_id.js" />
+    <Content Include="Scripts\fileinput_locale_it.js" />
+    <Content Include="Scripts\fileinput_locale_ja.js" />
+    <Content Include="Scripts\fileinput_locale_LANG.js" />
+    <Content Include="Scripts\fileinput_locale_nl.js" />
+    <Content Include="Scripts\fileinput_locale_pl.js" />
+    <Content Include="Scripts\fileinput_locale_pt-BR.js" />
+    <Content Include="Scripts\fileinput_locale_pt.js" />
+    <Content Include="Scripts\fileinput_locale_ro.js" />
+    <Content Include="Scripts\fileinput_locale_ru.js" />
+    <Content Include="Scripts\fileinput_locale_sk.js" />
+    <Content Include="Scripts\fileinput_locale_th.js" />
+    <Content Include="Scripts\fileinput_locale_tr.js" />
+    <Content Include="Scripts\fileinput_locale_uk.js" />
+    <Content Include="Scripts\fileinput_locale_zh-TW.js" />
+    <Content Include="Scripts\fileinput_locale_zh.js" />
+    <Content Include="Scripts\Gallery.js" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\jquery.fancybox-media.js" />
+    <Content Include="Scripts\jquery.fancybox-thumbs.js" />
+    <Content Include="Scripts\jquery.fancybox.js" />
+    <Content Include="Scripts\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\jquery.maskedinput.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.1.0.js" />
+    <Content Include="Scripts\jquery.mobile-1.1.0.min.js" />
+    <Content Include="Scripts\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Scripts\Menu.js" />
+    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.ascx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleMobileConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdvertismentController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ViewSwitcherController.cs" />
+    <Compile Include="DAL\UsedCarDealerContext.cs" />
+    <Compile Include="DAL\UsedCarDealerInitializer.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\AdvertismentDetailsDynamicNodeProvider.cs" />
+    <Compile Include="Infrastructure\AppConfig.cs" />
+    <Compile Include="Infrastructure\Consts.cs" />
+    <Compile Include="Infrastructure\DefaultCacheProvider.cs" />
+    <Compile Include="Infrastructure\ICacheProvider.cs" />
+    <Compile Include="Infrastructure\UrlHelpers.cs" />
+    <Compile Include="Migrations\201605191844225_InitialCreate.cs" />
+    <Compile Include="Migrations\201605191844225_InitialCreate.Designer.cs">
+      <DependentUpon>201605191844225_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201424331_AddPhotoFileName.cs" />
+    <Compile Include="Migrations\201605201424331_AddPhotoFileName.Designer.cs">
+      <DependentUpon>201605201424331_AddPhotoFileName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201628009_AddEmailAdress.cs" />
+    <Compile Include="Migrations\201605201628009_AddEmailAdress.Designer.cs">
+      <DependentUpon>201605201628009_AddEmailAdress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605221050357_carYearTypeChange.cs" />
+    <Compile Include="Migrations\201605221050357_carYearTypeChange.Designer.cs">
+      <DependentUpon>201605221050357_carYearTypeChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605221051553_carYearTypeChange_cd.cs" />
+    <Compile Include="Migrations\201605221051553_carYearTypeChange_cd.Designer.cs">
+      <DependentUpon>201605221051553_carYearTypeChange_cd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605250908165_AddCars.cs" />
+    <Compile Include="Migrations\201605250908165_AddCars.Designer.cs">
+      <DependentUpon>201605250908165_AddCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605250938257_AddColorToAdvert.cs" />
+    <Compile Include="Migrations\201605250938257_AddColorToAdvert.Designer.cs">
+      <DependentUpon>201605250938257_AddColorToAdvert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605261132304_changeImages.cs" />
+    <Compile Include="Migrations\201605261132304_changeImages.Designer.cs">
+      <DependentUpon>201605261132304_changeImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605261144557_addImagesList.cs" />
+    <Compile Include="Migrations\201605261144557_addImagesList.Designer.cs">
+      <DependentUpon>201605261144557_addImagesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605261146059_addImagesList_ForgotDbSET.cs" />
+    <Compile Include="Migrations\201605261146059_addImagesList_ForgotDbSET.Designer.cs">
+      <DependentUpon>201605261146059_addImagesList_ForgotDbSET.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605261215566_fix.cs" />
+    <Compile Include="Migrations\201605261215566_fix.Designer.cs">
+      <DependentUpon>201605261215566_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605261226559_fixGuidToInt.cs" />
+    <Compile Include="Migrations\201605261226559_fixGuidToInt.Designer.cs">
+      <DependentUpon>201605261226559_fixGuidToInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605261241281_Error.cs" />
+    <Compile Include="Migrations\201605261241281_Error.Designer.cs">
+      <DependentUpon>201605261241281_Error.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605271850178_ChangePhotos.cs" />
+    <Compile Include="Migrations\201605271850178_ChangePhotos.Designer.cs">
+      <DependentUpon>201605271850178_ChangePhotos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605291253435_Requirments.cs" />
+    <Compile Include="Migrations\201605291253435_Requirments.Designer.cs">
+      <DependentUpon>201605291253435_Requirments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Advertisment.cs" />
+    <Compile Include="Models\AdvertPhotos.cs" />
+    <Compile Include="Models\BasicInformation.cs" />
+    <Compile Include="Models\Cars.cs" />
+    <Compile Include="Models\ModelOfCar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AdvertismentDTO.cs" />
+    <Compile Include="ViewModels\BasicInformationDTO.cs" />
+    <Compile Include="ViewModels\BasicInformationViewModel.cs" />
+    <Compile Include="ViewModels\EditCarViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Shared\_UsedCarDealerLayout.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\BasicInformation.cshtml" />
+    <Content Include="Views\Admin\AdvertismentsList.cshtml" />
+    <Content Include="Views\Admin\AddAdvertisment.cshtml" />
+    <Content Include="Views\Admin\ModifyAdvertisment.cshtml" />
+    <Content Include="Views\Advertisment\AdvertismentList.cshtml" />
+    <Content Include="Views\Advertisment\AdvertismentDetails.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Route.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Shared\_ViewSwitcher.cshtml" />
+    <Content Include="Views\Home\HomePage.Mobile.cshtml" />
+    <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Views\Home\_ContactData.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Views\Shared\_CarList.cshtml" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="Views\Shared\_AdminCarList.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\CarPhotos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605191844225_InitialCreate.resx">
+      <DependentUpon>201605191844225_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201424331_AddPhotoFileName.resx">
+      <DependentUpon>201605201424331_AddPhotoFileName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201628009_AddEmailAdress.resx">
+      <DependentUpon>201605201628009_AddEmailAdress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605221050357_carYearTypeChange.resx">
+      <DependentUpon>201605221050357_carYearTypeChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605221051553_carYearTypeChange_cd.resx">
+      <DependentUpon>201605221051553_carYearTypeChange_cd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605250908165_AddCars.resx">
+      <DependentUpon>201605250908165_AddCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605250938257_AddColorToAdvert.resx">
+      <DependentUpon>201605250938257_AddColorToAdvert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605261132304_changeImages.resx">
+      <DependentUpon>201605261132304_changeImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605261144557_addImagesList.resx">
+      <DependentUpon>201605261144557_addImagesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605261146059_addImagesList_ForgotDbSET.resx">
+      <DependentUpon>201605261146059_addImagesList_ForgotDbSET.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605261215566_fix.resx">
+      <DependentUpon>201605261215566_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605261226559_fixGuidToInt.resx">
+      <DependentUpon>201605261226559_fixGuidToInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605261241281_Error.resx">
+      <DependentUpon>201605261241281_Error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605271850178_ChangePhotos.resx">
+      <DependentUpon>201605271850178_ChangePhotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605291253435_Requirments.resx">
+      <DependentUpon>201605291253435_Requirments.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>32611</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:32611/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

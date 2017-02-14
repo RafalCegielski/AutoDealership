@@ -1,0 +1,15 @@
+﻿@if (Request.Browser.IsMobileDevice && Request.HttpMethod == "GET")
+{
+    <div class="view-switcher ui-bar-a">
+        @if (ViewContext.HttpContext.GetOverriddenBrowser().IsMobileDevice)
+        {
+            @: Widok dla urządzeń mobilnych
+            @Html.ActionLink("przełącz", "SwitchView", "ViewSwitcher", new { mobile = false, returnUrl = Request.Url.PathAndQuery }, new { rel = "external" })
+        } 
+        else 
+        {
+            @: Widok dla komputerów
+            @Html.ActionLink("przełącz", "SwitchView", "ViewSwitcher", new { mobile = true, returnUrl = Request.Url.PathAndQuery }, new { rel = "external" })
+        }
+    </div>
+}

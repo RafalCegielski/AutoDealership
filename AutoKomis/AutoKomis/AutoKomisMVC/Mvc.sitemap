@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Start" controller="Home" action="HomePage">
+    <mvcSiteMapNode title="Kontakt" controller="Home" action="Contact"/>
+      <mvcSiteMapNode title="Dojazd" controller="Home" action="Route"/>
+      <mvcSiteMapNode title="Ogloszenia" controller="Advertisment" action="AdvertismentList">
+        <mvcSiteMapNode title="Tytul" controller="Advertisment" action="AdvertismentDetails" dynamicNodeProvider="AutoKomisMVC.Infrastructure.AdvertismentDetailsDynamicNodeProvider, AutoKomisMVC" />
+      </mvcSiteMapNode>
+  </mvcSiteMapNode>
+
+
+
+
+
+
+
+
+</mvcSiteMap>

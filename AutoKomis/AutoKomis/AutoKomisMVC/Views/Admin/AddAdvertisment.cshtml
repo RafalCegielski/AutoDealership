@@ -1,0 +1,302 @@
+﻿@model AutoKomisMVC.ViewModels.EditCarViewModel
+@using AutoKomisMVC.ViewModels
+@{
+    ViewBag.Title = "Dodawanie ogłoszenia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{string action;}
+@if (ViewBag.EditFlag == true)
+{
+    action = "ModifyAdvertisment";
+
+}
+else
+{
+    action = "AddAdvertisment";
+}
+
+@using (Html.BeginForm(action, "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div id="addingCar">
+
+        
+            <div class="form-group labelName">
+                <label class="col-sm-2 control-label">
+                    Marka
+                </label>
+                <div class="col-sm-4" style="text-align:left">
+                    @Html.DropDownListFor(m => m.advert.BrandOfCar, (SelectList)ViewBag.CarsList, "Wybierz Markę...")
+
+                </div>
+            </div>
+
+            <div class="form-group labelName">
+                <label class="col-sm-2">
+                    Model
+                </label>
+                <div class="col-sm-4" style="text-align:left">
+                    @Html.DropDownListFor(m => m.advert.ModelOfCar, (SelectList)ViewBag.ModelList, "Wybierz Model...", new { disabled = true })
+                </div>
+            </div>
+        
+
+
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Cena [zł]
+            </label>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="input-group-validation right-sm">
+                            @Html.TextBoxFor(o => o.advert.Price)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Poj. silnika [cm3]
+            </label>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="input-group-validation right-sm">
+                            @Html.TextBoxFor(o => o.advert.EngineCapacity)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Rok produkcji
+            </label>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="input-group-validation right-sm">
+                            @Html.TextBoxFor(o => o.advert.YearOfCreate)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Paliwo
+            </label>
+            <div class="col-sm-4" style="text-align:left">
+                @Html.DropDownListFor(c => c.advert.FluelType, Enum.GetValues(typeof(Fluel)).Cast<Fluel>().Select(c => new SelectListItem { Text = c.ToString(), Value = c.ToString() }))
+            </div>
+        </div>
+
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Moc silnika [KM]
+            </label>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="input-group-validation right-sm">
+                            @Html.TextBoxFor(o => o.advert.EnginePower)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Przebieg [km]
+            </label>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="input-group-validation right-sm">
+                            @Html.TextBoxFor(o => o.advert.Mileage)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Typ nadwozia
+            </label>
+            <div class="col-sm-4" style="text-align:left">
+                @Html.DropDownListFor(c => c.advert.BodyType, Enum.GetValues(typeof(BodyType)).Cast<BodyType>().Select(c => new SelectListItem { Text = c.ToString(), Value = c.ToString() }))
+
+            </div>
+        </div>
+
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Kolor
+            </label>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="input-group-validation right-sm">
+                            @Html.TextBoxFor(o => o.advert.Color)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Skrzynia biegów
+            </label>
+            <div class="col-sm-4" style="text-align:left">
+                @Html.DropDownListFor(c => c.advert.Gearbox, Enum.GetValues(typeof(Gearbox)).Cast<Gearbox>().Select(c => new SelectListItem { Text = c.ToString(), Value = c.ToString() }))
+
+            </div>
+        </div>
+
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Wyposażenie
+            </label>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="input-group-validation right-sm">
+                            @Html.TextBoxFor(o => o.advert.Equipment)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group labelName">
+            <label class="col-sm-2">
+                Liczba drzwi
+            </label>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="input-group-validation right-sm">
+                            @Html.TextBoxFor(o => o.advert.NumberOfDoor)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="labelName">
+            <p>
+                @Html.TextAreaFor(t => t.advert.Description, new { @class = "ckeditor" })
+            </p>
+
+        </div>
+
+
+        @*<input id="inputImg" name="file" type="file" multiple  />
+
+            <label class="control-label">Select File</label>
+            <input id="input-1" type="file" class="file">*@
+
+        @if (ViewBag.EditFlag == false)
+        {
+            <input id="inputImg" name="file" type="file" multiple class="file-loading" accept="image/*">
+        }
+
+
+
+
+
+
+        @Html.ValidationSummary()
+
+
+        @if (ViewBag.EditFlag == true)
+        {
+            <button class="btn btn-success btn-lg btnAddAdvertisment">Zmień ogłoszenie</button>
+        }
+        else
+        {
+            <button class="btn btn-success btn-lg btnAddAdvertisment">Dodaj ogłoszenie</button>
+        }
+
+
+
+    </div>
+
+
+}
+
+@section ckeditor{
+    <script src="../../Content/Editor/ckeditor.js"></script>
+
+
+}
+@section ScriptsBottom{
+
+    <link href="~/Content/bootstrap-fileinput/css/fileinput.css" rel="stylesheet" />
+    <script src="~/Scripts/fileinput.js"></script>
+    <script src="~/Scripts/fileinput_locale_pl.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+
+            $("#inputImg").fileinput({
+                uploadUrl: "/file-upload-batch/2",
+                allowedFileExtensions: ["jpg", "png", "gif"],
+                //initialPreview: [
+                //        "<img style='height:160px' src='/Content/Images/1.jpg'>",
+                //        "<img style='height:160px' src='http://lorempixel.com/800/460/nature/2'>",
+                //        "<img style='height:160px' src='/Content/Images/1.jpg'>",
+                //],
+                //initialPreviewConfig: [
+                //    { caption: "Nature-1.jpg", size: 628782, width: "120px", url: "/site/file-delete", key: 1 },
+                //    { caption: "Nature-2.jpg", size: 982873, width: "120px", url: "/site/file-delete", key: 2 },
+                //    { caption: "Nature-3.jpg", size: 567728, width: "120px", url: "/site/file-delete", key: 3 },
+                //],
+                //overwriteInitial: false,
+                language: "pl",
+                showUpload: false,
+                showRemove: false,
+                uploadIcon: false,
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#advert_BrandOfCar").change(function () {
+                var id = $(this).val();
+                var modelList = $("#advert_ModelOfCar")
+
+                modelList.empty();
+                modelList.prop('disabled', false);
+                $.ajax({
+                    url: '/administracja/GetCascadeModels',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { 'brand': id },
+                    success: function (data) {
+                        $.each(data, function (index, option) {
+                            modelList.append('<option value=' + option.Model + '>' + option.Model + ' </option>')
+                        });
+                    }
+                });
+
+            });
+
+
+        });
+    </script>
+    <script>
+        activeEl = 2;
+    </script>
+
+}
+

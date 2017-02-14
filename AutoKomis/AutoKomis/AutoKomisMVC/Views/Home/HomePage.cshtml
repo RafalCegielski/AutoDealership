@@ -1,0 +1,52 @@
+﻿@model AutoKomisMVC.ViewModels.HomeViewModel
+@using AutoKomisMVC.Infrastructure
+@{
+    ViewBag.Title = "Strona główna";
+}
+
+@if (Model.NewAdvertisments.Count() >= 4)
+{
+<div id="lastAddCanBaner">Ostatnio dodane samochody:</div>
+<section>
+    <ul class="ColumnsCoversList large-cover-list">
+
+        
+        @foreach (var advert in Model.NewAdvertisments)
+        {
+            <li>
+                <article>
+                    <a class="productdetailslink" href="@Url.Action("AdvertismentDetails", "Advertisment", new { id = advert.AdvertismentID, BrandOfCar = advert.BrandOfCar, ModelOfCar = advert.ModelOfCar })">
+                        <div class="newFlag"></div>
+                        
+                        <img class="album-cover" src="@Url.CarPhotoPath(advert.AdvertPhotos.FirstOrDefault().PhotoFileName)" />
+                        
+                        <h1 style="font-size:20px">
+                            @advert.BrandOfCar 
+                            @advert.ModelOfCar
+                        </h1>
+                    </a>
+                </article>
+            </li>
+        }
+    </ul>
+</section>
+}
+
+<div id="banerHome">
+    <div class="col-md-12 col-xs-12">
+        <div id="fontStyleBanerTitle">
+            AUTOKOMIS: <br />
+            kupno, sprzedaż, zamiana
+        </div>
+        @Html.Action("ContactData")
+        <div class="fontSizeInBaner">
+            Jeśli chcesz sprzedać swój samochód, zadzwoń do nas.<br />
+            Płacimy gotówką !<br />
+            Bezpłatnie przyjmujemy samochody w komis !
+        </div>
+
+    </div>
+
+
+</div>
+

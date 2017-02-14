@@ -1,0 +1,77 @@
+﻿@model AutoKomisMVC.ViewModels.BasicInformationDTO
+
+@{
+    ViewBag.Title = "Kontakt";
+}
+<div id="contactBaner">
+    <div class="col-md-12 col-xs-12" style="text-align:left; font-size:30px"> @Html.MvcSiteMap().SiteMapPath()</div>
+    <div class="col-md-12 col-xs-12">
+        <div id="fontStyleBanerTitle">
+            Skontaktuj się z nami:
+        </div><br />
+        <div class="fontSizeInBaner">
+            Rzeszów ul. Rejtana 1a
+        </div>
+        @Html.Action("ContactData")
+        <div class="fontSizeInBaner marginBottom30">
+            Napisz do nas:
+        </div>
+
+
+
+        <div class="col-md-6 col-md-offset-3">
+
+            <form class="form-horizontal" action="" method="post">
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="name">Imię i nazwisko</label>
+                    <div class="col-md-9">
+                        <input autocomplete="off" id="name" name="name" type="text" placeholder="Imię i nazwisko" class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="email">E-mail</label>
+                    <div class="col-md-9">
+                        <input autocomplete="off" id="email" name="email" type="text" placeholder="E-mail" class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="phone">Numer telefonu</label>
+                    <div class="col-md-9">
+                        <input autocomplete="off" id="phone" name="phone" type="text" placeholder="Numer telefonu" class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="message">Wiadomość</label>
+                    <div class="col-md-9">
+                        <textarea autocomplete="off" class="form-control" id="message" name="message" placeholder="Wiadomość" rows="5"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-12 text-right">
+                        <button type="submit" class="btn btn-primary btn-lg" id="sendButton">Wyślij</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>
+
+@section ScriptsBottom{
+
+    <script>
+        activeEl = 2;
+    </script>
+}

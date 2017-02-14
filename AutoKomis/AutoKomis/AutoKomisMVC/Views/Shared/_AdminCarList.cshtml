@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AutoKomisMVC.ViewModels.AdvertismentDTO>
+@using AutoKomisMVC.Infrastructure;
+@{
+    ViewBag.Title = "_AdminCarList";
+    Layout = null;
+}
+
+
+
+
+<div id="carlist-section">
+    @foreach (var advert in Model)
+    {
+
+        <div class="row" id="marginRowAdmin">
+            <div class="col-md-12 col-xs-12 advertBackground">
+                <img class="col-md-3 col-xs-3 advertImg" src="@Url.CarPhotoPath(advert.AdvertPhotos.FirstOrDefault().PhotoFileName)" />
+                <div class="col-md-4 col-xs-4">
+                    <div class="adminAdvertTopic">@advert.BrandOfCar @advert.ModelOfCar</div>
+                    <div class="adminAdvertPrice">@advert.Price</div>
+                </div>
+                <div class="col-md-3 col-xs-3">
+                    <div class="adminAdvertCounter">Ilość Wyświetleń:</div>
+                    <div class="adminAdvertCounterCD">1241</div>
+                </div>
+                <div class="col-md-2 col-xs-2 adminAdvertGryp">
+                    <a href="@Url.Action("AdvertismentDetails","Advertisment",new { id = advert.AdvertismentID, BrandOfCar=advert.BrandOfCar, ModelOfCar=advert.ModelOfCar })" class="glyphicon glyphicon-search adminAdvertGrypFirst"></a>
+                    <a href="@Url.Action("ModifyAdvertisment","Admin",new { id = advert.AdvertismentID})" class="glyphicon glyphicon-wrench adminAdvertGrypNext"></a>
+                    <a href="@Url.Action("RemoveAdvertisment","Admin",new { id = advert.AdvertismentID})" class="glyphicon glyphicon-trash adminAdvertGrypNext"></a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+    
+
+
